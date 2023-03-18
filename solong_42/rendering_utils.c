@@ -29,13 +29,25 @@ int	controls(int key, t_data *m)
 	if (m->map[m->g_neo.y][m->g_neo.x] == 'P')
 	{
 		if (key == 2 && m->map[m->g_neo.y][m->g_neo.x + 1] != '1')
+		{
 			left(m);
+			ft_display_stats(m);
+		}
 		else if (key == 0 && m->map[m->g_neo.y][m->g_neo.x - 1] != '1')
+		{
 			right(m);
+			ft_display_stats(m);
+		}
 		else if (key == 1 && m->map[m->g_neo.y + 1][m->g_neo.x] != '1')
+		{
 			down(m);
+			ft_display_stats(m);
+		}
 		else if (key == 13 && m->map[m->g_neo.y - 1][m->g_neo.x] != '1')
+		{
 			up(m);
+			ft_display_stats(m);
+		}
 	}
 	return (0);
 }
@@ -64,7 +76,6 @@ void	render_map(t_data *m)
 		}
 		idx[3] += 1;
 	}
-	ft_display_stats(m);
 }
 
 void	ft_display_stats(t_data *m)
