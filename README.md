@@ -14,7 +14,7 @@ This project serves as a practical exercise in various programming concepts, inc
 ## Features
 
 - Player Movement: The game allows the player character to move in four directions (up, down, left, right) within the game world.
-- Path Finding: The game implements a path finding algorithm to allow the player to navigate the maze or chack if the map is valid.
+- Path Finding: The game implements a path finding algorithm to allow the player to navigate the maze or check if the map is valid.
 - Obstacles: The game includes various types of obstacles such as walls or enemies that the player must navigate around.
 - Collectibles: The player can collect items scattered throughout the maze to open the portal.
 - Collision Detection: So_Long incorporates collision detection mechanisms to ensure the player character interacts correctly with obstacles and collectibles.
