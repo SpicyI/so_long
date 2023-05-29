@@ -3,9 +3,7 @@
 ## Game Preview
 <p align="center"> 
 
-    ![game preview](./fps/so_long_gif.gif)
-
-    Text
+    ![game-preview](./solong_42/fps/so_long_gif.gif)
 </p>
 
 So_Long is a simple 2D game built in C as a programming project. It is a part of the 42 curriculum and it's the first graphics project that aims to provide an introduction to game development and graphics programming.
@@ -25,7 +23,7 @@ This project serves as a practical exercise in various programming concepts, inc
 - Win/Lose Conditions: It implements win and lose conditions, such as collecting all items and reaching the exit, or colliding with certain obstacles.
 
 ## Usage
-the ptogram takes a map as an argument and displays it on the screen. The map is a rectangular shape composed of different characters representing the following elements:
+the program takes a map as an argument and displays it on the screen. The map is a rectangular shape composed of different characters representing the following elements:
 1. `0` for an empty space
 2. `1` for a wall
 3. `C` for a collectible item
