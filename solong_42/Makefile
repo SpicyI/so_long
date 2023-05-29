@@ -1,38 +1,44 @@
-MAKEFLAGS += --silent
-NAME= so_long
 CC = cc
-SRCS= controls_utils.c main.c map_utils.c renderingV2_0.c rendering_utils.c so_long_utils.c validpath.c
-BSRCS= controls_utils_bonus.c main_bonus.c map_utils_bonus.c renderingV2_0_bonus.c rendering_utils_bonus.c so_long_utils_bonus.c validpath_bonus.c
-LIB= ./libft/libft.a
-CFLAGS = -Wall -Wextra -Werror 
-MLX_FLAGS= -lmlx -framework OpenGL -framework AppKit
-RM = rm -f
-OBJ = $(SRCS:.c=.o)
-BOBJ = $(BSRCS:.c=.o)
+CFLAGS =  -Wall -Werror -Wextra -lmlx -framework OpenGL -framework AppKit
+
+NAME = so_long
+BNAME = so_long_bonus
+EXT = .c
+SRCDIR = .
+HEADERS = $(wildcard ./*.h);
+OBJDIR = obj
+LIBFT = ./libft/libft.a
+OBJ_DIR= mkdir -p obj
+SRC= src/controls_utils.c src/main.c src/map_utils.c src/renderingV2_0.c src/rendering_utils.c src/so_long_utils.c src/validpath.c
+BSRC= src/controls_utils_bonus.c src/main_bonus.c src/map_utils_bonus.c src/renderingV2_0_bonus.c src/rendering_utils_bonus.c src/so_long_utils_bonus.c src/validpath_bonus.c
+
+OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
+BOBJ = $(BSRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
+
+RM = rm -rf
+DELOBJ = $(OBJ) $(BOBJ)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	make -C libft
-	$(CC) $(CFLAGS) -I . $(MLX_FLAGS) $(OBJ) $(LIB) -o $@
-	make clean
-	echo "so_long is created"
+$(NAME): $(OBJ) $(HEADERS)
+	make -C ./libft
+	$(CC) $(CFLAGS) $(LIBFT) -o $@ $(OBJ)
 
-%.o: %.c
-		$(CC) $(CFLAGS) -I. -o $@ -c $?
+$(OBJDIR)/%.o: $(SRCDIR)/%$(EXT) $(HEADERS)
+	$(OBJ_DIR)
+	$(CC) $(CFLAGS) -o $@ -c $<
 
-bonus: $(BOBJ)
-	make -C libft
-	$(CC) $(CFLAGS) -I . $(MLX_FLAGS) $(BOBJ) $(LIB) -o $(NAME)
-	echo "so_long bonus is created"
+bonus: $(BOBJ) $(HEADERS)
+	make -C ./libft
+	$(CC) $(CFLAGS) $(LIBFT) -o $(BNAME) $(BOBJ)
 
-clean:
-		make clean -C libft
-		$(RM) $(OBJ) $(BOBJ)
+.PHONY: clean
+clean: 
+	make clean -C ./libft
 
-fclean: clean
-		make fclean -C libft
-		$(RM) $(NAME)
-		echo "so_long is deleted"
+.PHONY: fclean
+fclean: clean 
+	$(RM) $(NAME) $(BNAME)
 
+.PHONY: re
 re: fclean all

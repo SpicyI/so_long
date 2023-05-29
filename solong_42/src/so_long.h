@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_player
 {
