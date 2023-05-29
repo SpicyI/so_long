@@ -1,10 +1,9 @@
 ## So_long
 
 ## Game Preview
-<p align="center"> 
-
-    ![game-preview](./solong_42/fps/so_long_gif.gif)
-</p>
+<div id="header" align="center">
+  <img src="./solong_42/fps/so_long_gif.gif" width="500"/>
+</div>
 
 So_Long is a simple 2D game built in C as a programming project. It is a part of the 42 curriculum and it's the first graphics project that aims to provide an introduction to game development and graphics programming.
 
